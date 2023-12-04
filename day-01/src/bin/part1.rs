@@ -10,28 +10,48 @@ fn main() {
     let reader = BufReader::new(file);
     let mut sum: i32 = 0;
     for line in reader.lines() {
-        let mut digits: Vec<i32> = vec![];
-        for sym in line.unwrap().chars() {
-            if sym.is_numeric() {
-                digits.push(sym.to_digit(10).unwrap().try_into().unwrap())
-            }
-        }
-        sum += get_final_number(&digits)
+        let res = line.unwrap();
+        sum += get_line_result(&res[..]);
     }
     println!("Total sum is: {}", sum)
 }
 
-fn get_final_number(v: &Vec<i32>) -> i32 {
-    match v.len() {
+fn get_line_result(line: &str) -> i32 {
+    let mut digits: Vec<i32> = vec![];
+    for sym in line.chars() {
+        if sym.is_digit(10) {
+            let digit = sym.to_digit(10).unwrap().try_into().unwrap();
+            digits.push(digit);
+        }
+    }
+    match digits.len() {
         0 => 0,
         1 => {
-            let digit = *v.to_owned().first().unwrap();
+            let digit = *digits.to_owned().first().unwrap();
             digit * 10 + digit
         }
         _ => {
-            let first_digit = *v.to_owned().first().unwrap();
-            let last_digit = *v.to_owned().last().unwrap();
+            let first_digit = *digits.to_owned().first().unwrap();
+            let last_digit = *digits.to_owned().last().unwrap();
             first_digit * 10 + last_digit
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::get_line_result;
+
+    #[test]
+    fn day1_part1_2digit() {
+        assert_eq!(get_line_result("pqr3stu8vwx"), 38);
+    }
+    #[test]
+    fn day1_part1_multiple_digits() {
+        assert_eq!(get_line_result("pqr3stu8vwx3abc"), 33);
+    }
+    #[test]
+    fn day1_part1_multiple_single_digit() {
+        assert_eq!(get_line_result("treb7uchet"), 77);
     }
 }
