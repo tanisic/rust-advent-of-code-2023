@@ -64,11 +64,11 @@ mod tests {
     use crate::get_line_result;
 
     #[test]
-    fn day1_part2_single_digit() {
+    fn single_digit() {
         assert_eq!(get_line_result("9cvsmgzprlk"), 99);
     }
     #[test]
-    fn day1_part2_mixed() {
+    fn mixed() {
         assert_eq!(get_line_result("7hmfivefivesevenjdjpfive"), 75);
     }
 }

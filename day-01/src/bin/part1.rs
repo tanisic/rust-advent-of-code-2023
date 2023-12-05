@@ -43,15 +43,15 @@ mod tests {
     use crate::get_line_result;
 
     #[test]
-    fn day1_part1_2digit() {
+    fn two_digits() {
         assert_eq!(get_line_result("pqr3stu8vwx"), 38);
     }
     #[test]
-    fn day1_part1_multiple_digits() {
+    fn multiple_digits() {
         assert_eq!(get_line_result("pqr3stu8vwx3abc"), 33);
     }
     #[test]
-    fn day1_part1_multiple_single_digit() {
+    fn multiple_single_digit() {
         assert_eq!(get_line_result("treb7uchet"), 77);
     }
 }
