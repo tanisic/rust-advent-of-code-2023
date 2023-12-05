@@ -23,7 +23,7 @@ fn main() {
 }
 
 fn generate_arr() -> (Vec<char>, usize) {
-    let path = Path::new("part1_summary.txt");
+    let path = Path::new("summary.txt");
     let file = File::open(path).unwrap();
     let len_reader: BufReader<File> = BufReader::new(file);
     let file = File::open(path).unwrap();

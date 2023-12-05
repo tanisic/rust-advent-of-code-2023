@@ -50,7 +50,7 @@ impl Game {
 }
 
 fn main() {
-    let path = Path::new("input2.txt");
+    let path = Path::new("input.txt");
     let file = File::open(path).unwrap();
     let reader = BufReader::new(file);
     let mut games: Vec<Game> = vec![];

@@ -39,7 +39,7 @@ impl Card {
 }
 
 fn main() {
-    let path = Path::new("input3.txt");
+    let path = Path::new("input.txt");
     let file = File::open(path).unwrap();
     let cnt_reader: BufReader<File> = BufReader::new(file);
     let file = File::open(path).unwrap();

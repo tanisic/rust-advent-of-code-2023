@@ -5,7 +5,7 @@ use std::{
 };
 
 fn main() {
-    let path = Path::new("input1.txt");
+    let path = Path::new("input.txt");
     let file = File::open(path).unwrap();
     let reader = BufReader::new(file);
     let mut sum: i32 = 0;
